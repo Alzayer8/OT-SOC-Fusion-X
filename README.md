@@ -50,6 +50,9 @@ These results were produced in the accepted synthetic/local validation environme
 | Visual evidence | 32/32 |
 | Docker services | 3/3 healthy |
 | Baseline | 0 current incidents |
+| External application-runtime requests | 0 |
+
+External-runtime validation applies to the OT-SOC Fusion X application stack and excludes GitHub-rendered documentation assets such as repository badges.
 
 ## Investigation capabilities
 
@@ -227,7 +230,7 @@ This project does **not** provide real PLC connectivity, real Modbus transmissio
 Prerequisites: Git, Docker Engine, Buildx, and Docker Compose v2. No host Python, Node, npm, or PostgreSQL runtime is required for deployment.
 
 ```sh
-git clone <PRIVATE_REPOSITORY_URL>
+git clone https://github.com/Alzayer8/OT-SOC-Fusion-X.git
 cd OT-SOC-Fusion-X
 cp .env.example .env
 ```

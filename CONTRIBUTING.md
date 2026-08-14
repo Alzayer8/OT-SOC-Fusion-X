@@ -1,6 +1,8 @@
 # Contributing
 
-Contributions are welcome when they preserve the project's synthetic, offline, advisory-only scope.
+Feedback and issue reports are welcome. Security reports should follow [SECURITY.md](SECURITY.md). Proposed code changes should be discussed through an issue before implementation; code contributions and pull requests require explicit maintainer approval and are not automatically accepted.
+
+Repository visibility and contribution discussion do not grant license rights. Any accepted contribution must preserve the project's synthetic, offline, advisory-only safety boundary.
 
 ## Contribution boundaries
 
