@@ -1,0 +1,132 @@
+{
+  "dataset_id": "otsoc.final-evaluation.oil-gas-transfer",
+  "dataset_version": "1.0.0",
+  "display_id": "OTSOC-FINAL-EVAL-V1",
+  "seed": 20260811,
+  "environment_classification": "SYNTHETIC_OFFLINE_ADVISORY_ACADEMIC",
+  "educational_only": true,
+  "contains_ground_truth": false,
+  "profiles": {
+    "protocol": {
+      "profile_id": "otsoc.synthetic_modbus.oil_gas_transfer",
+      "profile_version": "1.0.0",
+      "sha256": "b3ade7b3ae5dd7e5955c54b5a3345dc6f79b5bfa7bf78a2f1a82df3a5f4016ff"
+    },
+    "inventory": {
+      "profile_id": "otsoc.asset_inventory.oil_gas_transfer",
+      "profile_version": "1.0.0",
+      "sha256": "5b101619ae8fbb279c2b79938a09ab6fc4432712c0f8f03e5d3edead43edb01b"
+    },
+    "policy": {
+      "profile_id": "otsoc.communication_policy.oil_gas_transfer",
+      "profile_version": "1.0.0",
+      "sha256": "f396a1eeae4318585c6b2c7290cbb2e409509f3d54bf6e2a276bc027d5d17159"
+    },
+    "correlation": {
+      "profile_id": "otsoc.correlation.oil_gas_transfer",
+      "profile_version": "1.0.0",
+      "sha256": "bf0be174d58627da7ecf17ebde325d0aa5ad57a742b92df2ac524f46ae2856c2"
+    },
+    "incident": {
+      "profile_id": "otsoc.incident.oil_gas_transfer",
+      "profile_version": "1.0.0",
+      "sha256": "609de2ee030102c7f36c22109748e7b53b019fedd51125b3bc3af23c8fd53411"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "OTSOC-EVAL-V1-BG-001",
+      "case_kind": "BACKGROUND",
+      "run_id": "otsoc-eval-v1-bg-run-001",
+      "configuration": {
+        "configuration_id": "otsoc-eval-v1-bg-config-001",
+        "scenario": "NORMAL_BACKGROUND",
+        "seed": 20260811,
+        "simulator_version": "3.0.0",
+        "process_model_version": "3.6",
+        "telemetry_schema_version": "2.0.0"
+      },
+      "context_fixtures": [
+        {
+          "file": "known_hmi_approved_read.json",
+          "sha256": "20caa19d975bd46de82bd6c2c05b240b3891ab650f77f29ce9524e229e1a0c87"
+        },
+        {
+          "file": "known_hmi_approved_pump_command.json",
+          "sha256": "dcc18ec82540a03466923a14c0a8f564adf9c54b54a073d7a92246e4076500b6"
+        }
+      ],
+      "correlation_fixture": {
+        "file": "p6b-f007.json",
+        "sha256": "75d52e418bdd109e3cea830941b66d008692cb7ec945b41d227e7e3df66d5a31"
+      }
+    },
+    {
+      "case_id": "OTSOC-EVAL-V1-S1-001",
+      "case_kind": "S1",
+      "run_id": null,
+      "configuration": null,
+      "context_fixtures": [
+        {
+          "file": "s1_unknown_source_asset.json",
+          "sha256": "7b82b4d463457f5f936e18bc635bb08cb2e3525166b3f992ba0a6b253c3177d3"
+        }
+      ],
+      "correlation_fixture": null
+    },
+    {
+      "case_id": "OTSOC-EVAL-V1-S2-001",
+      "case_kind": "S2",
+      "run_id": null,
+      "configuration": null,
+      "context_fixtures": [
+        {
+          "file": "s2_it_to_controller.json",
+          "sha256": "bc431cfc69818c5dc18daf7d015d8ebfe3a95fbc36c9e737596ee225c7785b12"
+        }
+      ],
+      "correlation_fixture": null
+    },
+    {
+      "case_id": "OTSOC-EVAL-V1-S3-001",
+      "case_kind": "S3",
+      "run_id": "otsoc-eval-v1-s3-run-001",
+      "configuration": {
+        "configuration_id": "otsoc-eval-v1-s3-config-001",
+        "scenario": "S3_DENIED_CORRELATED",
+        "seed": 20260811,
+        "simulator_version": "3.0.0",
+        "process_model_version": "3.6",
+        "telemetry_schema_version": "2.0.0"
+      },
+      "context_fixtures": [
+        {
+          "file": "s3_engineering_denied_valve_command.json",
+          "sha256": "e9d3ed75bee7772efd52c13c9025c58de57854f3bd5d0b7ce91f4766c275620a"
+        }
+      ],
+      "correlation_fixture": {
+        "file": "p6b-f005.json",
+        "sha256": "5c90fe0189636165a6f2fe90b3e73737102c4de351aa96fb002217a73c520243"
+      }
+    },
+    {
+      "case_id": "OTSOC-EVAL-V1-S4-001",
+      "case_kind": "S4",
+      "run_id": "otsoc-eval-v1-s4-run-001",
+      "configuration": {
+        "configuration_id": "otsoc-eval-v1-s4-config-001",
+        "scenario": "S4_PROCESS_INCONSISTENCY",
+        "seed": 20260811,
+        "simulator_version": "3.0.0",
+        "process_model_version": "3.6",
+        "telemetry_schema_version": "2.0.0"
+      },
+      "context_fixtures": [],
+      "correlation_fixture": {
+        "file": "p6b-f008.json",
+        "sha256": "dafb913c0c6ce3d950e2e59558499cefbbad72cf545ad510141a76ebd7cef9ad"
+      }
+    }
+  ]
+}

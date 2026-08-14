@@ -1,0 +1,77 @@
+{
+  "profile_id": "otsoc.incident.oil_gas_transfer",
+  "profile_version": "1.0.0",
+  "incident_schema": "otsoc.incident.record",
+  "incident_schema_version": "1.0.0",
+  "domain": "oil_gas_transfer",
+  "educational_only": true,
+  "disclaimer": "Fictional academic incident qualification; advisory investigation context only.",
+  "categories": ["ASSET_IDENTITY_ANOMALY", "COMMUNICATION_POLICY_VIOLATION", "CONTROL_COMMAND_INVESTIGATION", "PROCESS_INCONSISTENCY"],
+  "severities": ["LOW", "MEDIUM", "HIGH"],
+  "statuses": ["OPEN", "INVESTIGATING", "RESOLVED"],
+  "initial_status": "OPEN",
+  "evidence_roles": ["PRIMARY", "SUPPORTING", "CONTRADICTING", "CONTEXT"],
+  "timeline_entry_types": ["INCIDENT_CREATED", "EVIDENCE_ADDED", "STATUS_CHANGED", "SEVERITY_CHANGED", "ANALYST_NOTE_ADDED"],
+  "evidence_schemas": [
+    {"evidence_type": "protocol_semantic_event", "schema_id": "otsoc.protocol.semantic_event", "schema_version": "1.0.0"},
+    {"evidence_type": "asset_context_event", "schema_id": "otsoc.asset.context_event", "schema_version": "1.0.0"},
+    {"evidence_type": "communication_policy_finding", "schema_id": "otsoc.communication_policy.finding", "schema_version": "1.0.0"},
+    {"evidence_type": "correlation_finding", "schema_id": "otsoc.cyber_physical.correlation_finding", "schema_version": "1.0.0"}
+  ],
+  "grouping": {
+    "window_seconds": 300,
+    "window_kind": "FIXED_NON_OVERLAPPING_UTC",
+    "timestamp_authority": "OBSERVED_AT",
+    "s1_s2_run_scope": "NO_SIMULATION_SCOPE",
+    "denied_s3_run_scope": "UNBOUND_PROCESS_SCOPE"
+  },
+  "rules": [
+    {
+      "rule_id": "IQR-S1-UNKNOWN-SOURCE-001",
+      "rule_version": "1.0.0",
+      "branch": "S1",
+      "category": "ASSET_IDENTITY_ANOMALY",
+      "initial_severity": "LOW",
+      "required_evidence_types": ["communication_policy_finding"],
+      "title_template_id": "INCIDENT_S1_UNKNOWN_SOURCE",
+      "title": "Unknown synthetic source identity",
+      "summary": "A synthetic source identity was not resolved by the selected inventory; analyst review of the stored communication evidence is warranted, and malicious intent is not determined."
+    },
+    {
+      "rule_id": "IQR-S2-IT-PLC-POLICY-001",
+      "rule_version": "1.0.0",
+      "branch": "S2",
+      "category": "COMMUNICATION_POLICY_VIOLATION",
+      "initial_severity": "MEDIUM",
+      "required_evidence_types": ["communication_policy_finding"],
+      "title_template_id": "INCIDENT_S2_POLICY_VIOLATION",
+      "title": "Unapproved synthetic IT-to-controller communication",
+      "summary": "A stored synthetic IT-to-controller communication was not approved by the selected policy; analyst review is warranted, and malicious intent is not determined."
+    },
+    {
+      "rule_id": "IQR-S3-CV-COMMAND-001",
+      "rule_version": "1.0.0",
+      "branch": "S3",
+      "category": "CONTROL_COMMAND_INVESTIGATION",
+      "initial_severity": "MEDIUM",
+      "required_evidence_types": ["communication_policy_finding", "correlation_finding"],
+      "title_template_id": "INCIDENT_S3_CONTROL_COMMAND",
+      "title": "CV-101 control-command investigation",
+      "summary": "A stored CV-101 synthetic command and its verified authorization/process context warrant analyst review; correlation does not determine cause or malicious intent."
+    },
+    {
+      "rule_id": "IQR-S4-PUMP-FLOW-001",
+      "rule_version": "1.0.0",
+      "branch": "S4",
+      "category": "PROCESS_INCONSISTENCY",
+      "initial_severity": "HIGH",
+      "required_evidence_types": ["correlation_finding"],
+      "title_template_id": "INCIDENT_S4_PROCESS_INCONSISTENCY",
+      "title": "P-101/PL-101 process inconsistency",
+      "summary": "Stored synthetic pump, flow, pressure, and inventory observations satisfy the configured process-inconsistency qualification; analyst review is warranted, and no cyber cause or malicious intent is asserted."
+    }
+  ],
+  "ground_truth_used": false,
+  "malicious_intent_inferred": false,
+  "causality_inferred": false
+}

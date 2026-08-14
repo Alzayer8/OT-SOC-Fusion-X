@@ -1,0 +1,16 @@
+{
+  "event_version": "1.0.0",
+  "capture_mode": "OFFLINE_FIXTURE",
+  "observed_at": "2026-01-01T00:22:00Z",
+  "source_identity": "OTSOC-LAB-SOURCE-06",
+  "destination_identity": "OTSOC-MB-UNIT-01",
+  "transaction_id": 600,
+  "protocol_id": 0,
+  "unit_id": 1,
+  "message_role": "OPERATION",
+  "function_code": 6,
+  "table_type": "holding_register",
+  "address_offset": 1,
+  "raw_value": "twenty-five",
+  "fixture_id": "p4b-malformed-value"
+}

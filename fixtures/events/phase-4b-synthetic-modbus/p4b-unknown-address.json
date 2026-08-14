@@ -1,0 +1,16 @@
+{
+  "event_version": "1.0.0",
+  "capture_mode": "OFFLINE_FIXTURE",
+  "observed_at": "2026-01-01T00:20:00Z",
+  "source_identity": "OTSOC-LAB-SOURCE-04",
+  "destination_identity": "OTSOC-MB-UNIT-01",
+  "transaction_id": 400,
+  "protocol_id": 0,
+  "unit_id": 1,
+  "message_role": "OPERATION",
+  "function_code": 3,
+  "table_type": "holding_register",
+  "address_offset": 99,
+  "raw_value": 100,
+  "fixture_id": "p4b-unknown-address"
+}

@@ -1,0 +1,45 @@
+{
+  "dataset_id": "otsoc.final-evaluation.oil-gas-transfer",
+  "dataset_version": "1.0.0",
+  "dataset_sha256": "aaa409d8af1461a33312d3e9c829b3f57755e18936555c80befabe6b77ba5d88",
+  "evaluation_only": true,
+  "cases": {
+    "OTSOC-EVAL-V1-BG-001": {
+      "policy_statuses": ["APPROVED", "APPROVED"],
+      "correlation_status": "NOT_CORRELATED",
+      "correlation_reason": "NO_PROCESS_CHANGE",
+      "incident": null,
+      "required_lineage_types": []
+    },
+    "OTSOC-EVAL-V1-S1-001": {
+      "policy_statuses": ["UNKNOWN"],
+      "policy_reasons": ["SOURCE_UNKNOWN"],
+      "correlation_status": null,
+      "incident": {"category": "ASSET_IDENTITY_ANOMALY", "severity": "LOW", "status": "OPEN"},
+      "required_lineage_types": ["synthetic_protocol_event", "protocol_semantic_event", "communication_policy_finding"]
+    },
+    "OTSOC-EVAL-V1-S2-001": {
+      "policy_statuses": ["DENIED"],
+      "policy_reasons": ["COMMUNICATION_NOT_APPROVED"],
+      "correlation_status": null,
+      "incident": {"category": "COMMUNICATION_POLICY_VIOLATION", "severity": "MEDIUM", "status": "OPEN"},
+      "required_lineage_types": ["synthetic_protocol_event", "protocol_semantic_event", "communication_policy_finding"]
+    },
+    "OTSOC-EVAL-V1-S3-001": {
+      "policy_statuses": ["DENIED"],
+      "policy_reasons": ["SOURCE_ROLE_NOT_APPROVED"],
+      "correlation_status": "CORRELATED",
+      "correlation_reason": "CORRELATION_MATCH",
+      "incident": {"category": "CONTROL_COMMAND_INVESTIGATION", "severity": "HIGH", "status": "OPEN"},
+      "required_lineage_types": ["synthetic_protocol_event", "protocol_semantic_event", "asset_context_event", "communication_policy_finding", "simulator_telemetry", "correlation_finding"]
+    },
+    "OTSOC-EVAL-V1-S4-001": {
+      "policy_statuses": [],
+      "correlation_status": "CORRELATED",
+      "correlation_reason": "CORRELATION_MATCH",
+      "incident": {"category": "PROCESS_INCONSISTENCY", "severity": "HIGH", "status": "OPEN"},
+      "required_lineage_types": ["simulator_telemetry", "correlation_finding"],
+      "cyber_parent_count": 0
+    }
+  }
+}

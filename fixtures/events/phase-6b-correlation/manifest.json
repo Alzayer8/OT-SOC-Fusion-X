@@ -1,0 +1,26 @@
+{
+  "fixture_set_id": "otsoc.phase6b.correlation",
+  "fixture_set_version": "1.0.0",
+  "profile_id": "otsoc.correlation.oil_gas_transfer",
+  "profile_version": "1.0.0",
+  "profile_sha256": "bf0be174d58627da7ecf17ebde325d0aa5ad57a742b92df2ac524f46ae2856c2",
+  "educational_only": true,
+  "contains_ground_truth": false,
+  "fixtures": [
+    {"catalog_id":"P6B-F001","file":"p6b-f001.json","bytes":521,"sha256":"a1681fe42c8b6421a3d26687664fa3bdc62a34b19794d58540ae7e6c6125a18c"},
+    {"catalog_id":"P6B-F002","file":"p6b-f002.json","bytes":526,"sha256":"518d14125eeead88fbba68c0995888854dc1d1f8ffdbb5504250a9beb4e43522"},
+    {"catalog_id":"P6B-F003","file":"p6b-f003.json","bytes":536,"sha256":"2d1fe46486f55fc28704e3d94f743d8f0edbf056d9e3a251b66143860a882c6b"},
+    {"catalog_id":"P6B-F004","file":"p6b-f004.json","bytes":516,"sha256":"8e305e3dbab8d92f5c29e2b7fc5fedf1d016022a7baa8f02b30fa6e2f83504c6"},
+    {"catalog_id":"P6B-F005","file":"p6b-f005.json","bytes":518,"sha256":"5c90fe0189636165a6f2fe90b3e73737102c4de351aa96fb002217a73c520243"},
+    {"catalog_id":"P6B-F006","file":"p6b-f006.json","bytes":445,"sha256":"5cbdabf6f9d29b6b51d116c9e068c62fd11e868b7b3cd92b33445c193717d7e5"},
+    {"catalog_id":"P6B-F007","file":"p6b-f007.json","bytes":515,"sha256":"75d52e418bdd109e3cea830941b66d008692cb7ec945b41d227e7e3df66d5a31"},
+    {"catalog_id":"P6B-F008","file":"p6b-f008.json","bytes":510,"sha256":"dafb913c0c6ce3d950e2e59558499cefbbad72cf545ad510141a76ebd7cef9ad"},
+    {"catalog_id":"P6B-F009","file":"p6b-f009.json","bytes":423,"sha256":"577d548ac66f1139d7caadd686e04b9cbd35f9139d3dae4a4752db564f8ed729"},
+    {"catalog_id":"P6B-F010","file":"p6b-f010.json","bytes":523,"sha256":"31a4d1390ecb2ee234079116bc5f57f63cb41c59cb68b3f307525fd1bd67ca5a"},
+    {"catalog_id":"P6B-F011","file":"p6b-f011.json","bytes":533,"sha256":"1d60cefeef7c9f7b23400d6b170be71e6e8f0e4b02cf66a32c9d010eb323963e"},
+    {"catalog_id":"P6B-F012","file":"p6b-f012.json","bytes":528,"sha256":"9044fa2c156d1545366189514a8b2b284268df93f3b58f30c6365f59d4902cce"},
+    {"catalog_id":"P6B-F013","file":"p6b-f013.json","bytes":525,"sha256":"b204ef8691009faa3e4256f5629ab4b291ecd13531097c0cc10a99e81bbfc117"},
+    {"catalog_id":"P6B-F014","file":"p6b-f014.json","bytes":517,"sha256":"d32d132d3ce2def1bdaabef8e873be260944d6c3af40fea1682486e64130004a"},
+    {"catalog_id":"P6B-F015","file":"p6b-f015.json","bytes":420,"sha256":"7432a9d2afbf771f8344f8d7aded9ccceb55dc5106e6ab7d0e280c311442f9e3"}
+  ]
+}

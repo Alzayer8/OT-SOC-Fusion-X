@@ -1,0 +1,5 @@
+backend/app/protocols/profiles/*.json text eol=lf
+backend/app/context/profiles/*.json text eol=lf
+fixtures/events/phase-4b-synthetic-modbus/*.json text eol=lf
+fixtures/events/phase-5b-asset-policy/*.json text eol=lf
+docs/implementation/v1.1/V1_1_TEST_PLAN.md whitespace=-trailing-space

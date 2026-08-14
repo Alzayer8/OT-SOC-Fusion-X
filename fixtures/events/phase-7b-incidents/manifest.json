@@ -1,0 +1,27 @@
+{
+  "fixture_set_id": "otsoc.phase7b.incidents",
+  "fixture_set_version": "1.0.0",
+  "fixture_count": 20,
+  "fixtures": [
+    {"catalog_id":"P7B-F001","file":"p7b-f001.json","sha256":"a39922201140ceb450044eea1d8b81c1626657bb7f63455d0a9aac59b0998b30"},
+    {"catalog_id":"P7B-F002","file":"p7b-f002.json","sha256":"4d046d142fa76e4dd03fc31c1ac03c724dcaeab1d7f0031462b925d28dc0b5c8"},
+    {"catalog_id":"P7B-F003","file":"p7b-f003.json","sha256":"54805afb13e0ccb94afd36410a5d5dbec58d6571db1af22b7cb4b080a35dd745"},
+    {"catalog_id":"P7B-F004","file":"p7b-f004.json","sha256":"06f91110984d0aa9f3614e12b310aab4d1f113e451347a61076306e514c59994"},
+    {"catalog_id":"P7B-F005","file":"p7b-f005.json","sha256":"5d61ca2fccffc8012dd9c9c0cf5cdce88ff24da1c8df54152f42303c6c0ade4d"},
+    {"catalog_id":"P7B-F006","file":"p7b-f006.json","sha256":"725f84cb95c03eaeea6342b89e71f7c2e1681856feee382e179d5f01e2d53e89"},
+    {"catalog_id":"P7B-F007","file":"p7b-f007.json","sha256":"ae34c540cefe4def20c1dcc1061cda7a3da2573e420c9d960d0c3eb602917f57"},
+    {"catalog_id":"P7B-F008","file":"p7b-f008.json","sha256":"f5207ad38b1bac0a61ae9defe0b4f10d4a28ca60887cf875192f6fa24b816324"},
+    {"catalog_id":"P7B-F009","file":"p7b-f009.json","sha256":"a50f1f9557d29716678f8d5d58bd128e0309690540e9fd2b4440ab005e688083"},
+    {"catalog_id":"P7B-F010","file":"p7b-f010.json","sha256":"1a50d7c1421d39e52fd685c66e8cd9b747bc0419f4d832942198a29c55907880"},
+    {"catalog_id":"P7B-F011","file":"p7b-f011.json","sha256":"7f74bd60d2315d2cbdc3ba9897f3a9fda9a264e63f763bfec0123e23b22fe27f"},
+    {"catalog_id":"P7B-F012","file":"p7b-f012.json","sha256":"257ef7da293a9eb619d6c415210c0e8d66ba459a926f1ced5e3172f61993e9a1"},
+    {"catalog_id":"P7B-F013","file":"p7b-f013.json","sha256":"ad17b37bf84541dc3a687559c8dcbae9dbb7176c5bd60f7d3102517c2c4e1def"},
+    {"catalog_id":"P7B-F014","file":"p7b-f014.json","sha256":"c4183d69c742ac21bf8adebb16afb846a312d5025f25560590793c4ecf06b05e"},
+    {"catalog_id":"P7B-F015","file":"p7b-f015.json","sha256":"5db57e358f8589b785bae7e0766a112d76db453fd701bde7d36c71884dad85e5"},
+    {"catalog_id":"P7B-F016","file":"p7b-f016.json","sha256":"9de28ea08b92e04c7b191f6beb6c8803a4a7822156f7311aaf6f6ea1242fead9"},
+    {"catalog_id":"P7B-F017","file":"p7b-f017.json","sha256":"15c52088dc8eef761c0fb2c94c8abd6fc71243a5953c45afcfd8efb898c40e63"},
+    {"catalog_id":"P7B-F018","file":"p7b-f018.json","sha256":"c66f9f77589bdf3ca42bc00cc598f1843dff49575da33549f6747dcd42b6da56"},
+    {"catalog_id":"P7B-F019","file":"p7b-f019.json","sha256":"05a07a07d43070e908ec65a796b2e59a5aede2dce07a1d869def2234f289ede3"},
+    {"catalog_id":"P7B-F020","file":"p7b-f020.json","sha256":"89391aa4c258b0eef22e22e051d371ec296adbd8b06e2d8b25aa9728aff1d74a"}
+  ]
+}

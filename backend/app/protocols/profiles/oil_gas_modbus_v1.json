@@ -1,0 +1,49 @@
+{
+  "profile_id": "otsoc.synthetic_modbus.oil_gas_transfer",
+  "profile_version": "1.0.0",
+  "protocol": "modbus_tcp",
+  "educational_only": true,
+  "disclaimer": "Fictional academic synthetic profile; non-plant-derived and not for real equipment.",
+  "fictional_endpoint": {
+    "endpoint_id": "OTSOC-MB-UNIT-01",
+    "description": "Synthetic Oil & Gas transfer semantic unit",
+    "unit_id": 1,
+    "network_address": null,
+    "tcp_port": null,
+    "real_device_equivalence": null
+  },
+  "canonical_addressing": {
+    "identity_fields": ["unit_id", "table_type", "address_offset"],
+    "address_offset_base": 0,
+    "discrete_input_display_base": 10001,
+    "input_register_display_base": 30001,
+    "holding_register_display_base": 40001
+  },
+  "supported_functions": [
+    {"function_code": 2, "semantic": "READ_DISCRETE_INPUTS", "category": "READ", "allowed_table": "discrete_input"},
+    {"function_code": 3, "semantic": "READ_HOLDING_REGISTERS", "category": "READ", "allowed_table": "holding_register"},
+    {"function_code": 4, "semantic": "READ_INPUT_REGISTERS", "category": "READ", "allowed_table": "input_register"},
+    {"function_code": 6, "semantic": "WRITE_SINGLE_REGISTER", "category": "WRITE", "allowed_table": "holding_register"}
+  ],
+  "statement_templates": {
+    "command_changed_to": "COMMAND_CHANGED_TO",
+    "command_value_read": "COMMAND_VALUE_READ",
+    "process_value_observed": "PROCESS_VALUE_OBSERVED",
+    "state_observed": "STATE_OBSERVED",
+    "address_unmapped": "ADDRESS_UNMAPPED",
+    "function_unsupported": "FUNCTION_UNSUPPORTED",
+    "value_malformed": "VALUE_MALFORMED",
+    "point_not_commandable": "POINT_NOT_COMMANDABLE"
+  },
+  "points": [
+    {"point_id":"transfer_pump_command_percent","component":"P-101","display_label":"transfer-pump command","access_class":"COMMANDABLE_SYNTHETIC","table_type":"holding_register","address_offset":0,"display_reference":40001,"logical_type":"decimal","protocol_representation":"uint16","width":1,"signed":false,"byte_order":"big_endian","scale":"0.1","unit":"%","engineering_min":"0.0","engineering_max":"100.0","raw_min":0,"raw_max":1000,"compatible_functions":[3,6],"template_id":"COMMAND_CHANGED_TO","decimal_places":1},
+    {"point_id":"control_valve_command_percent","component":"CV-101","display_label":"valve-position command","access_class":"COMMANDABLE_SYNTHETIC","table_type":"holding_register","address_offset":1,"display_reference":40002,"logical_type":"decimal","protocol_representation":"uint16","width":1,"signed":false,"byte_order":"big_endian","scale":"0.1","unit":"% open","engineering_min":"0.0","engineering_max":"100.0","raw_min":0,"raw_max":1000,"compatible_functions":[3,6],"template_id":"COMMAND_CHANGED_TO","decimal_places":1},
+    {"point_id":"source_tank_level_percent","component":"TK-101","display_label":"source-tank level","access_class":"READ_ONLY","table_type":"input_register","address_offset":0,"display_reference":30001,"logical_type":"decimal","protocol_representation":"uint16","width":1,"signed":false,"byte_order":"big_endian","scale":"0.1","unit":"%","engineering_min":"0.0","engineering_max":"100.0","raw_min":0,"raw_max":1000,"compatible_functions":[4],"template_id":"PROCESS_VALUE_OBSERVED","decimal_places":1},
+    {"point_id":"receiving_tank_level_percent","component":"TK-102","display_label":"receiving-tank level","access_class":"READ_ONLY","table_type":"input_register","address_offset":1,"display_reference":30002,"logical_type":"decimal","protocol_representation":"uint16","width":1,"signed":false,"byte_order":"big_endian","scale":"0.1","unit":"%","engineering_min":"0.0","engineering_max":"100.0","raw_min":0,"raw_max":1000,"compatible_functions":[4],"template_id":"PROCESS_VALUE_OBSERVED","decimal_places":1},
+    {"point_id":"pipeline_flow_rate_m3h","component":"PL-101","display_label":"pipeline flow","access_class":"READ_ONLY","table_type":"input_register","address_offset":2,"display_reference":30003,"logical_type":"decimal","protocol_representation":"uint16","width":1,"signed":false,"byte_order":"big_endian","scale":"0.01","unit":"synthetic m3/h","engineering_min":"0.00","engineering_max":"12.00","raw_min":0,"raw_max":1200,"compatible_functions":[4],"template_id":"PROCESS_VALUE_OBSERVED","decimal_places":2},
+    {"point_id":"pipeline_pressure_bar","component":"PL-101","display_label":"pipeline pressure","access_class":"READ_ONLY","table_type":"input_register","address_offset":3,"display_reference":30004,"logical_type":"decimal","protocol_representation":"uint16","width":1,"signed":false,"byte_order":"big_endian","scale":"0.001","unit":"synthetic bar","engineering_min":"0.000","engineering_max":"4.000","raw_min":0,"raw_max":4000,"compatible_functions":[4],"template_id":"PROCESS_VALUE_OBSERVED","decimal_places":3},
+    {"point_id":"process_temperature_c","component":"PL-101","display_label":"process temperature","access_class":"READ_ONLY","table_type":"input_register","address_offset":4,"display_reference":30005,"logical_type":"decimal","protocol_representation":"uint16","width":1,"signed":false,"byte_order":"big_endian","scale":"0.1","unit":"degC","engineering_min":"0.0","engineering_max":"80.0","raw_min":0,"raw_max":800,"compatible_functions":[4],"template_id":"PROCESS_VALUE_OBSERVED","decimal_places":1},
+    {"point_id":"control_valve_position_percent","component":"CV-101","display_label":"observed valve position","access_class":"READ_ONLY","table_type":"input_register","address_offset":5,"display_reference":30006,"logical_type":"decimal","protocol_representation":"uint16","width":1,"signed":false,"byte_order":"big_endian","scale":"0.1","unit":"% open","engineering_min":"0.0","engineering_max":"100.0","raw_min":0,"raw_max":1000,"compatible_functions":[4],"template_id":"PROCESS_VALUE_OBSERVED","decimal_places":1},
+    {"point_id":"transfer_pump_running","component":"P-101","display_label":"transfer-pump running state","access_class":"READ_ONLY","table_type":"discrete_input","address_offset":0,"display_reference":10001,"logical_type":"boolean","protocol_representation":"single_bit","width":1,"signed":false,"byte_order":"not_applicable","scale":null,"unit":"state","engineering_min":"0","engineering_max":"1","raw_min":0,"raw_max":1,"compatible_functions":[2],"template_id":"STATE_OBSERVED","decimal_places":0}
+  ]
+}

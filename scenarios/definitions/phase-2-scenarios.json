@@ -1,0 +1,10 @@
+{
+  "catalog_version": "1.0.0",
+  "scope": "Synthetic academic cooling-loop simulator only; no protocol, network, PLC, or device behavior.",
+  "scenarios": [
+    {"scenario_id":"S1","scenario_version":"1.0.0","status":"metadata_only","reason":"Requires later cyber-event/protocol phase."},
+    {"scenario_id":"S2","scenario_version":"1.0.0","status":"metadata_only","reason":"Requires later cyber-event/protocol phase."},
+    {"scenario_id":"S3","scenario_version":"1.0.0","status":"implemented","action":{"type":"set_pump_command","value":20.0,"affected_variables":["pump_command_percent"]}},
+    {"scenario_id":"S4","scenario_version":"1.0.0","status":"implemented","action":{"type":"set_flow_factor","value":0.0,"affected_variables":["flow_rate_m3h","inlet_temperature_c","outlet_temperature_c"]}}
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "profile_id": "otsoc.asset_inventory.oil_gas_transfer",
+  "profile_version": "1.0.0",
+  "domain": "oil_gas_transfer",
+  "educational_only": true,
+  "disclaimer": "Fictional academic synthetic inventory; non-plant-derived and not for real equipment.",
+  "protocol_profile_id": "otsoc.synthetic_modbus.oil_gas_transfer",
+  "protocol_profile_version": "1.0.0",
+  "protocol_profile_sha256": "b3ade7b3ae5dd7e5955c54b5a3345dc6f79b5bfa7bf78a2f1a82df3a5f4016ff",
+  "zones": [
+    {"zone_id":"IT_ZONE","name":"Synthetic IT Zone","purpose":"Enterprise-user context outside OT control.","trust_classification":"NO_OT_CONTROL_TRUST","allowed_relationship_types":[]},
+    {"zone_id":"OT_CONTROL_ZONE","name":"Synthetic OT Control Zone","purpose":"Logical controller and operator or engineering interfaces.","trust_classification":"LIMITED_CONTROL_TRUST","allowed_relationship_types":["HOSTS_ENDPOINT","CONTROLS","OBSERVES"]},
+    {"zone_id":"PROCESS_ZONE","name":"Synthetic Process Zone","purpose":"Non-communicating physical and process context.","trust_classification":"NON_NETWORK_PROCESS_CONTEXT","allowed_relationship_types":[]},
+    {"zone_id":"MONITORING_ZONE","name":"Synthetic Monitoring Zone","purpose":"Logical observation context only.","trust_classification":"PASSIVE_OBSERVATION_ONLY","allowed_relationship_types":["MONITORS"]},
+    {"zone_id":"SOC_ZONE","name":"Synthetic OT-SOC Zone","purpose":"Future read-only analyst-platform context.","trust_classification":"READ_ONLY_ANALYST_CONTEXT","allowed_relationship_types":[]}
+  ],
+  "assets": [
+    {"asset_key":"PLC-01","display_name":"Synthetic Transfer Controller","asset_kind":"CYBER","asset_type":"OT_CONTROLLER","asset_role":"CONTROL_EXECUTION","zone_id":"OT_CONTROL_ZONE","criticality":"HIGH","process_role":null,"protocol_capabilities":["MODBUS_SEMANTIC_ENDPOINT"],"enabled":true,"identifiers":[{"identifier_type":"LOGICAL_ID","value":"PLC-01"},{"identifier_type":"PROTOCOL_ENDPOINT_ID","value":"OTSOC-MB-UNIT-01"}]},
+    {"asset_key":"HMI-01","display_name":"Synthetic Operator Interface","asset_kind":"CYBER","asset_type":"HUMAN_MACHINE_INTERFACE","asset_role":"OPERATOR_INTERFACE","zone_id":"OT_CONTROL_ZONE","criticality":"MEDIUM","process_role":null,"protocol_capabilities":["MODBUS_READ_SOURCE","MODBUS_COMMAND_SOURCE"],"enabled":true,"identifiers":[{"identifier_type":"LOGICAL_ID","value":"HMI-01"}]},
+    {"asset_key":"ENG-WS-01","display_name":"Synthetic Engineering Workstation","asset_kind":"CYBER","asset_type":"ENGINEERING_WORKSTATION","asset_role":"ENGINEERING_MAINTENANCE","zone_id":"OT_CONTROL_ZONE","criticality":"MEDIUM","process_role":null,"protocol_capabilities":["MODBUS_READ_SOURCE"],"enabled":true,"identifiers":[{"identifier_type":"LOGICAL_ID","value":"ENG-WS-01"}]},
+    {"asset_key":"IT-WS-01","display_name":"Synthetic IT Workstation","asset_kind":"CYBER","asset_type":"IT_WORKSTATION","asset_role":"ENTERPRISE_USER","zone_id":"IT_ZONE","criticality":"LOW","process_role":null,"protocol_capabilities":[],"enabled":true,"identifiers":[{"identifier_type":"LOGICAL_ID","value":"IT-WS-01"}]},
+    {"asset_key":"MON-01","display_name":"Synthetic Monitoring Sensor","asset_kind":"CYBER","asset_type":"MONITORING_SENSOR","asset_role":"PASSIVE_MONITOR","zone_id":"MONITORING_ZONE","criticality":"MEDIUM","process_role":null,"protocol_capabilities":["PASSIVE_MONITORING_CONTEXT"],"enabled":true,"identifiers":[{"identifier_type":"LOGICAL_ID","value":"MON-01"}]},
+    {"asset_key":"SOC-01","display_name":"Synthetic OT-SOC Platform","asset_kind":"CYBER","asset_type":"OT_SOC_PLATFORM","asset_role":"ANALYST_PLATFORM","zone_id":"SOC_ZONE","criticality":"HIGH","process_role":null,"protocol_capabilities":["ANALYST_CONTEXT"],"enabled":true,"identifiers":[{"identifier_type":"LOGICAL_ID","value":"SOC-01"}]},
+    {"asset_key":"TK-101","display_name":"Synthetic Source Tank","asset_kind":"PROCESS","asset_type":"SOURCE_TANK","asset_role":"SOURCE_STORAGE","zone_id":"PROCESS_ZONE","criticality":"HIGH","process_role":"SOURCE_STORAGE","protocol_capabilities":[],"enabled":true,"identifiers":[{"identifier_type":"PROCESS_TAG","value":"TK-101"}]},
+    {"asset_key":"P-101","display_name":"Synthetic Transfer Pump","asset_kind":"PROCESS","asset_type":"TRANSFER_PUMP","asset_role":"LIQUID_TRANSFER","zone_id":"PROCESS_ZONE","criticality":"HIGH","process_role":"LIQUID_TRANSFER","protocol_capabilities":[],"enabled":true,"identifiers":[{"identifier_type":"PROCESS_TAG","value":"P-101"}]},
+    {"asset_key":"PL-101","display_name":"Synthetic Transfer Pipeline","asset_kind":"PROCESS","asset_type":"PIPELINE","asset_role":"TRANSFER_PATH","zone_id":"PROCESS_ZONE","criticality":"HIGH","process_role":"TRANSFER_PATH","protocol_capabilities":[],"enabled":true,"identifiers":[{"identifier_type":"PROCESS_TAG","value":"PL-101"}]},
+    {"asset_key":"CV-101","display_name":"Synthetic Control Valve","asset_kind":"PROCESS","asset_type":"CONTROL_VALVE","asset_role":"FLOW_CONTROL","zone_id":"PROCESS_ZONE","criticality":"HIGH","process_role":"FLOW_CONTROL","protocol_capabilities":[],"enabled":true,"identifiers":[{"identifier_type":"PROCESS_TAG","value":"CV-101"}]},
+    {"asset_key":"TK-102","display_name":"Synthetic Receiving Tank","asset_kind":"PROCESS","asset_type":"RECEIVING_TANK","asset_role":"DESTINATION_STORAGE","zone_id":"PROCESS_ZONE","criticality":"HIGH","process_role":"DESTINATION_STORAGE","protocol_capabilities":[],"enabled":true,"identifiers":[{"identifier_type":"PROCESS_TAG","value":"TK-102"}]}
+  ],
+  "relationships": [
+    {"relationship_type":"HOSTS_ENDPOINT","source_asset_key":"PLC-01","target_kind":"ENDPOINT","target_ref":"OTSOC-MB-UNIT-01"},
+    {"relationship_type":"CONTROLS","source_asset_key":"PLC-01","target_kind":"ASSET","target_ref":"P-101"},
+    {"relationship_type":"CONTROLS","source_asset_key":"PLC-01","target_kind":"ASSET","target_ref":"CV-101"},
+    {"relationship_type":"OBSERVES","source_asset_key":"PLC-01","target_kind":"ASSET","target_ref":"TK-101"},
+    {"relationship_type":"OBSERVES","source_asset_key":"PLC-01","target_kind":"ASSET","target_ref":"P-101"},
+    {"relationship_type":"OBSERVES","source_asset_key":"PLC-01","target_kind":"ASSET","target_ref":"PL-101"},
+    {"relationship_type":"OBSERVES","source_asset_key":"PLC-01","target_kind":"ASSET","target_ref":"CV-101"},
+    {"relationship_type":"OBSERVES","source_asset_key":"PLC-01","target_kind":"ASSET","target_ref":"TK-102"},
+    {"relationship_type":"MONITORS","source_asset_key":"MON-01","target_kind":"ASSET","target_ref":"PLC-01"}
+  ]
+}

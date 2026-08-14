@@ -1,0 +1,58 @@
+{
+  "profile_id": "otsoc.correlation.oil_gas_transfer",
+  "profile_version": "1.0.0",
+  "domain": "oil_gas_transfer",
+  "educational_only": true,
+  "disclaimer": "Fictional academic synthetic correlation parameters; not plant-derived alarms.",
+  "finding_schema": "otsoc.cyber_physical.correlation_finding",
+  "finding_schema_version": "1.0.0",
+  "dependencies": {
+    "inventory_profile_id": "otsoc.asset_inventory.oil_gas_transfer",
+    "inventory_profile_version": "1.0.0",
+    "inventory_profile_sha256": "5b101619ae8fbb279c2b79938a09ab6fc4432712c0f8f03e5d3edead43edb01b",
+    "policy_profile_id": "otsoc.communication_policy.oil_gas_transfer",
+    "policy_profile_version": "1.0.0",
+    "policy_profile_sha256": "f396a1eeae4318585c6b2c7290cbb2e409509f3d54bf6e2a276bc027d5d17159",
+    "protocol_profile_id": "otsoc.synthetic_modbus.oil_gas_transfer",
+    "protocol_profile_version": "1.0.0",
+    "protocol_profile_sha256": "b3ade7b3ae5dd7e5955c54b5a3345dc6f79b5bfa7bf78a2f1a82df3a5f4016ff",
+    "telemetry_schema": "otsoc.simulator.telemetry",
+    "telemetry_schema_version": "2.0.0",
+    "simulator_version": "3.0.0",
+    "process_model_version": "3.6"
+  },
+  "statuses": ["CORRELATED", "NOT_CORRELATED", "INSUFFICIENT_EVIDENCE", "INDETERMINATE"],
+  "reason_precedence": ["PARENT_EVIDENCE_NOT_VERIFIED", "PROFILE_VERSION_UNSUPPORTED", "PROFILE_DIGEST_MISMATCH", "UNSUPPORTED_CORRELATION_RULE", "RUN_ID_MISMATCH", "CONFIGURATION_MISMATCH", "SIMULATOR_VERSION_MISMATCH", "CLOCK_SEQUENCE_MISMATCH", "ASSET_RELATION_MISMATCH", "POINT_RELATION_NOT_DEFINED", "WINDOW_NOT_FINALIZED", "MISSING_TELEMETRY", "INSUFFICIENT_SAMPLES", "TELEMETRY_GAP_EXCEEDED", "BASELINE_NOT_STABLE", "PROCESS_CHANGE_OUTSIDE_WINDOW", "PROCESS_EFFECT_DIRECTION_MISMATCH", "NO_PROCESS_CHANGE", "CORRELATION_MATCH"],
+  "rules": [
+    {
+      "rule_id": "CPR-S3-CV-TRANSFER-001",
+      "rule_version": "1.0.0",
+      "evaluator_branch": "S3",
+      "process_asset_keys": ["CV-101", "PL-101", "TK-101", "TK-102"],
+      "point_ids": ["control_valve_position_percent", "pipeline_flow_rate_m3h", "pipeline_pressure_bar", "source_tank_level_percent", "receiving_tank_level_percent"],
+      "relationships": [
+        {"source_asset_key": "PLC-01", "relationship_type": "CONTROLS", "target_asset_key": "CV-101"},
+        {"source_asset_key": "CV-101", "relationship_type": "PROCESS_PATH", "target_asset_key": "PL-101"},
+        {"source_asset_key": "TK-101", "relationship_type": "PROCESS_PATH", "target_asset_key": "TK-102"}
+      ],
+      "window": {"baseline_seconds": 10, "effect_seconds": 30, "cadence_seconds": 1, "minimum_baseline_samples": 8, "minimum_effect_samples": 24, "maximum_gap_seconds": 2, "baseline_start_inclusive": true, "baseline_end_inclusive": false, "effect_start_inclusive": true, "effect_end_inclusive": true},
+      "thresholds": {"valve_target_percent": 25.0, "valve_tolerance_percentage_points": 0.5, "valve_persistence_samples": 3, "flow_decrease_m3h": 0.5, "flow_unchanged_deadband_m3h": 0.1, "flow_persistence_samples": 5, "pressure_increase_bar": 0.1, "pressure_unchanged_deadband_bar": 0.05, "pressure_persistence_samples": 5, "inventory_rate_reduction_percentage_points_per_second": 0.00002, "inventory_stagnation_percentage_points_per_second": null, "conservation_tolerance": 0.000000001, "low_flow_threshold_m3h": null, "terminal_inventory_seconds": null, "flow_baseline_stability_m3h": 0.1, "pressure_baseline_stability_bar": 0.05, "valve_baseline_stability_percentage_points": 0.5},
+      "statement_template_id": "S3_COMMAND_FOLLOWED_BY_PROCESS_OBSERVATION"
+    },
+    {
+      "rule_id": "CPR-S4-PUMP-FLOW-001",
+      "rule_version": "1.0.0",
+      "evaluator_branch": "S4",
+      "process_asset_keys": ["P-101", "PL-101", "TK-101", "TK-102"],
+      "point_ids": ["transfer_pump_running", "pipeline_flow_rate_m3h", "pipeline_pressure_bar", "source_tank_level_percent", "receiving_tank_level_percent"],
+      "relationships": [
+        {"source_asset_key": "PLC-01", "relationship_type": "CONTROLS", "target_asset_key": "P-101"},
+        {"source_asset_key": "P-101", "relationship_type": "PROCESS_PATH", "target_asset_key": "PL-101"},
+        {"source_asset_key": "TK-101", "relationship_type": "PROCESS_PATH", "target_asset_key": "TK-102"}
+      ],
+      "window": {"baseline_seconds": 10, "effect_seconds": 60, "cadence_seconds": 1, "minimum_baseline_samples": 8, "minimum_effect_samples": 50, "maximum_gap_seconds": 2, "baseline_start_inclusive": true, "baseline_end_inclusive": false, "effect_start_inclusive": true, "effect_end_inclusive": true},
+      "thresholds": {"valve_target_percent": null, "valve_tolerance_percentage_points": null, "valve_persistence_samples": null, "flow_decrease_m3h": 0.5, "flow_unchanged_deadband_m3h": 0.1, "flow_persistence_samples": 10, "pressure_increase_bar": 0.5, "pressure_unchanged_deadband_bar": 0.05, "pressure_persistence_samples": 10, "inventory_rate_reduction_percentage_points_per_second": null, "inventory_stagnation_percentage_points_per_second": 0.00001, "conservation_tolerance": 0.000000001, "low_flow_threshold_m3h": 0.1, "terminal_inventory_seconds": 20, "flow_baseline_stability_m3h": 0.1, "pressure_baseline_stability_bar": 0.05, "valve_baseline_stability_percentage_points": null},
+      "statement_template_id": "S4_PROCESS_INCONSISTENCY_OBSERVED"
+    }
+  ]
+}
